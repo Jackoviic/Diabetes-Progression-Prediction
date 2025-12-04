@@ -1,7 +1,6 @@
-# 🌟 Diabetes Progression Prediction: Multiple Linear Regression from Scratch
-
+# 🌟 Diabetes Progression Prediction: Multiple Linear Regression
 ## Project Overview 📊
-This repository contains a foundational Machine Learning project where a **Multiple Linear Regression (MLR)** model is implemented entirely from scratch using only **NumPy**. The goal is to predict the quantitative measure of **diabetes disease progression (Y)** one year after baseline, based on 10 demographic and clinical features. The model is trained using the **Batch Gradient Descent** optimization algorithm, offering a deep insight into the core mathematics of linear models.
+This repository contains a Machine Learning project where a **Multiple Linear Regression (MLR)** model is implemented using **NumPy**. The goal is to predict the quantitative measure of **diabetes disease progression (Y)** one year after baseline, based on 10 demographic and clinical features. The model is trained using the **Batch Gradient Descent** optimization algorithm, offering a deep insight into the core mathematics of linear models.
 
 ---
 
