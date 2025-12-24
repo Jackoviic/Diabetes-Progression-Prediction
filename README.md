@@ -71,3 +71,31 @@ Install them via pip:
 ```bash
 pip install numpy pandas matplotlib
 ```
+
+### Usage
+
+```python
+from code import *
+
+# Load the dataset
+X, y = load_diabetes()
+
+# Train the model
+theta = train_model(X, y)
+
+# Make predictions
+y_pred = predict(X, theta)
+
+# Visualize the results
+visualize_results(X, y, y_pred)
+```
+
+### Results
+
+The results of the model are shown in the following figure:
+
+![Results](results.png)
+
+### Future Work
+
+- Implement Stochastic Gradient Descent (SGD)
