@@ -66,14 +66,6 @@ $$
 - Pandas
 - Matplotlib
 
-### Prerequisites
-
-You need a Python environment with the following libraries:
-
-- `numpy` (for vectorized mathematical operations)
-- `pandas` (for data loading and manipulation)
-- `matplotlib` (for visualization)
-
 Install them via pip:
 
 ```bash
