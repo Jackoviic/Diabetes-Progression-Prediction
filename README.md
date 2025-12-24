@@ -1,5 +1,7 @@
 # 🌟 Diabetes Progression Prediction: Multiple Linear Regression
+
 ## Project Overview 📊
+
 This repository contains a Machine Learning project where a **Multiple Linear Regression (MLR)** model is implemented using **NumPy**. The goal is to predict the quantitative measure of **diabetes disease progression (Y)** one year after baseline, based on 10 demographic and clinical features. The model is trained using the **Batch Gradient Descent** optimization algorithm, offering a deep insight into the core mathematics of linear models.
 
 ---
@@ -39,31 +41,41 @@ The $\frac{1}{2}$ term is included for mathematical convenience, as its derivati
 **Batch Gradient Descent** is the engine that tunes the parameters $\mathbf{\theta}$ to minimize the MSE cost. It is an iterative process that works as follows:
 
 1.  **Initialization:** Start with an initial guess for $\mathbf{\theta}$ (typically all zeros, as in the code).
-2.  **Gradient Calculation:** The core of the algorithm involves calculating the **gradient** $\nabla J(\mathbf{\theta})$, which is the vector of partial derivatives, indicating the direction of steepest *ascent* on the cost surface. Because this is **Batch** Gradient Descent, the gradient is calculated using **all** $m$ training examples in a single pass (batch).
-   
+2.  **Gradient Calculation:** The core of the algorithm involves calculating the **gradient** $\nabla J(\mathbf{\theta})$, which is the vector of partial derivatives, indicating the direction of steepest _ascent_ on the cost surface. Because this is **Batch** Gradient Descent, the gradient is calculated using **all** $m$ training examples in a single pass (batch).
+
 $$
 \nabla J(\mathbf{\theta}) = \frac{1}{m} X^T (X \mathbf{\theta} - \mathbf{y})
 $$
-    
-4.  **Parameter Update:** The parameters are updated by moving a small step in the direction *opposite* to the gradient (i.e., the direction of steepest **descent**). The step size is controlled by the **learning rate** ($\alpha$):
+
+4.  **Parameter Update:** The parameters are updated by moving a small step in the direction _opposite_ to the gradient (i.e., the direction of steepest **descent**). The step size is controlled by the **learning rate** ($\alpha$):
 
 $$
 \mathbf{\theta}_{new} = \mathbf{\theta}_{old} - \alpha \nabla J(\mathbf{\theta})
 $$
-    
+
 6.  **Convergence:** This process is repeated for a set number of **iterations** (e.g., 2000), iteratively adjusting $\mathbf{\theta}$ until the cost function converges to a minimum.
 
 ---
 
 ## 🚀 Getting Started
 
+### Requirements
+
+- Python 3.13
+- NumPy
+- Pandas
+- Matplotlib
+
 ### Prerequisites
 
 You need a Python environment with the following libraries:
-* `numpy` (for vectorized mathematical operations)
-* `pandas` (for data loading and manipulation)
-* `matplotlib` (for visualization)
+
+- `numpy` (for vectorized mathematical operations)
+- `pandas` (for data loading and manipulation)
+- `matplotlib` (for visualization)
 
 Install them via pip:
+
 ```bash
 pip install numpy pandas matplotlib
+```
