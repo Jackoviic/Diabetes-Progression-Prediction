@@ -61,33 +61,17 @@ $$
 
 ### Requirements
 
-- Python 3.13
-- NumPy
-- Pandas
-- Matplotlib
+- Python = 3.13.3
+- NumPy = 2.2.6
+- Pandas = 2.2.3
+- Matplotlib = 3.10.3
 
-Install them via pip:
+### Installation
+
+### Install the required packages
 
 ```bash
-pip install numpy pandas matplotlib
-```
-
-### Usage
-
-```python
-from code import *
-
-# Load the dataset
-X, y = load_diabetes()
-
-# Train the model
-theta = train_model(X, y)
-
-# Make predictions
-y_pred = predict(X, theta)
-
-# Visualize the results
-visualize_results(X, y, y_pred)
+$ pip install -r requirements.txt
 ```
 
 ### Results
@@ -95,7 +79,3 @@ visualize_results(X, y, y_pred)
 The results of the model are shown in the following figure:
 
 ![Results](results.png)
-
-### Future Work
-
-- Implement Stochastic Gradient Descent (SGD)

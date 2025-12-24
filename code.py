@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Load dataset
-df = pd.read_csv('diabetes.tab.csv')
+df = pd.read_csv('assets/diabetes.tab.csv')
 X = df.drop('Y', axis=1).values  # axis=1 >> drop column, .values >> convert to a 1D numpy array.
 y = df[['Y']].to_numpy()  # Select as DataFrame column and convert to NumPy
 # Many ML libraries (e.g., scikit-learn, NumPy) expect the target variable (y) to be a 2D array for operations like matrix multiplication.
@@ -59,4 +59,5 @@ plt.xlabel("Actual Disease Progression")
 plt.ylabel("Predicted Disease Progression")
 plt.title("Full Dataset Performance")
 plt.grid(True)
-plt.show()
+plt.savefig('results.png')
+# plt.show()
