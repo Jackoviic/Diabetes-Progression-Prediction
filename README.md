@@ -68,7 +68,14 @@ $$
 
 ### Installation
 
-### Install the required packages
+### 1) Install python 3.13.3
+
+```bash
+$ sudo apt update
+$ sudo apt install python3.13.3
+```
+
+### 2) Install the required packages
 
 ```bash
 $ pip install -r requirements.txt
