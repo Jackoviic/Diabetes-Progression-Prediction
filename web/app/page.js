@@ -78,8 +78,8 @@ export default function Home() {
           {[
             { title: '1. Load Data', desc: 'Load the 442-patient dataset. Features: Age, BMI, BP, & 6 Blood Serum levels.' },
             { title: '2. Preprocessing', desc: 'Split data: 80% Training, 20% Testing. Apply Z-score Standardization.' },
-            { title: '3. Architecture', desc: 'Initialize Linear Regression model ($y = X\\theta$) with zero-weights.' },
-            { title: '4. Training', desc: 'Minimize MSE using Batch Gradient Descent (10k iters) with auto-convergence.' },
+            { title: '3. Architecture', desc: 'Initialize Linear Regression model with zero-weights.' },
+            { title: '4. Training', desc: 'Minimize MSE using Batch Gradient Descent (10k iters) with auto-convergence test.' },
             { title: '5. Evaluation', desc: 'Validate model on unseen Test Set to ensure generalization.' }
           ].map((step, i) => (
             <div key={i} className="glass-panel" style={{ padding: '1.5rem', textAlign: 'center' }}>
