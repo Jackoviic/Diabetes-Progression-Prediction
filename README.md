@@ -151,7 +151,7 @@ $ sudo apt install python3.13.3
 $ pip install -r requirements.txt
 ```
 
-### 3) Running the Model
+**3) Running the Model**
 
 To train the model and generate the performance plot:
 
@@ -175,7 +175,7 @@ Open Command Prompt or PowerShell in the project directory and run:
 $ pip install -r requirements.txt
 ```
 
-### 3) Running the Model
+**3) Running the Model**
 
 To train the model and generate the performance plot:
 
