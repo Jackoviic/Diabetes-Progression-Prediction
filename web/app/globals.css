@@ -22,7 +22,7 @@
 
 body {
   background-color: var(--bg-primary);
-  background-image: 
+  background-image:
     radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 20%),
     radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 20%);
   color: var(--text-primary);
@@ -86,6 +86,16 @@ h1 {
     grid-template-columns: 1fr;
     height: auto;
   }
+
+  .list-container {
+    height: 400px;
+    /* Limit height on mobile */
+  }
+
+  h1 {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    /* Responsive title */
+  }
 }
 
 /* Patient List */
@@ -114,6 +124,7 @@ h1 {
 .patient-list::-webkit-scrollbar {
   width: 6px;
 }
+
 .patient-list::-webkit-scrollbar-thumb {
   background: var(--bg-secondary);
   border-radius: 3px;
@@ -175,11 +186,15 @@ h1 {
 }
 
 .metric-label {
-  font-size: 0.75rem;
+  font-size: 0.65rem;
+  font-weight: 600;
   color: var(--text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: 0.25rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .metric-value {
@@ -221,12 +236,18 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  animation: none; /* Counteract rotation if needed, or just separate elements */
+  animation: none;
+  /* Counteract rotation if needed, or just separate elements */
 }
 
 @keyframes spin-border {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .pred-val {
@@ -266,13 +287,18 @@ h1 {
   font-weight: 600;
 }
 
-.actual-val { color: var(--success); }
-.error-val { color: var(--warning); }
+.actual-val {
+  color: var(--success);
+}
+
+.error-val {
+  color: var(--warning);
+}
 
 .loading-spinner {
   width: 40px;
   height: 40px;
-  border: 3px solid rgba(255,255,255,0.1);
+  border: 3px solid rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   border-top-color: var(--accent-primary);
   animation: spin 1s ease-in-out infinite;
@@ -280,5 +306,7 @@ h1 {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
