@@ -66,7 +66,7 @@ $$
 \mathbf{\theta}_{new} = \mathbf{\theta}_{old} - \alpha \nabla J(\mathbf{\theta})
 $$
 
-6.  **Convergence:** This process is repeated until the change in the cost function between iterations drops below a small threshold ($\epsilon = 1e^{-3}$) or a maximum number of **iterations** (10,000) is reached. This **automatic convergence check** ensures effective training without unnecessary computations.
+6.  **Convergence:** This process is repeated until the change in the cost function between iterations drops below a small threshold ($\epsilon = 1e^{-3}$) or a maximum number of **iterations** (3,000) is reached. This **automatic convergence check** ensures effective training without unnecessary computations.
 
 ---
 
@@ -108,7 +108,7 @@ A column of ones is then added to `X` (both train and test sets) to account for 
 ### 4. Hyperparameters + Convergence
 The training is controlled by the following parameters:
 - **Learning Rate (`alpha`):** `0.01`
-- **Max Iterations:** `10000`
+- **Max Iterations:** `3000`
 - **Convergence Threshold (`epsilon`):** `1e-3` (The loop stops early if the cost improvement between iterations is less than this value).
 
 ### 5. Gradient Descent
