@@ -137,7 +137,7 @@ export default function Home() {
           <div className="prediction-area">
             <div className="prediction-circle" style={{ animationDuration: '6s' }}>
             </div>
-            <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -70%)', textAlign: 'center' }}>
+            <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', width: '100%', marginTop: '-10px' }}>
               <div className="pred-val">{prediction.toFixed(1)}</div>
               <div className="pred-label">Predicted Progression</div>
             </div>
