@@ -132,4 +132,4 @@ $ pip install -r requirements.txt
 
 The result of the model (results/performance.png) is shown in the following figure:
 
-![Results](results/Performance.png)
+![Results](results/performance.png)
