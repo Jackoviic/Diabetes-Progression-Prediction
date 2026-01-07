@@ -66,7 +66,7 @@ $$
 \mathbf{\theta}_{new} = \mathbf{\theta}_{old} - \alpha \nabla J(\mathbf{\theta})
 $$
 
-6.  **Convergence:** This process is repeated for a set number of **iterations** (2000), iteratively adjusting $\mathbf{\theta}$ until the cost function converges to a minimum.
+6.  **Convergence:** This process is repeated until the change in the cost function between iterations drops below a small threshold ($\epsilon = 1e^{-3}$) or a maximum number of **iterations** (10,000) is reached. This **automatic convergence check** ensures effective training without unnecessary computations.
 
 ---
 
