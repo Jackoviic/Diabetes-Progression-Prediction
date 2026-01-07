@@ -53,7 +53,54 @@ $$
 \mathbf{\theta}_{new} = \mathbf{\theta}_{old} - \alpha \nabla J(\mathbf{\theta})
 $$
 
-6.  **Convergence:** This process is repeated for a set number of **iterations** (e.g., 2000), iteratively adjusting $\mathbf{\theta}$ until the cost function converges to a minimum.
+6.  **Convergence:** This process is repeated for a set number of **iterations** (2000), iteratively adjusting $\mathbf{\theta}$ until the cost function converges to a minimum.
+
+---
+
+## 📝 Code Explanation
+
+The `code.py` script implements the model through the following key steps:
+
+### 1. Load Dataset
+The data is loaded from `assets/diabetes.tab.csv`. The script separates the features (`X`) from the target variable (`y`), converting `y` into a 2D numpy array to comply with matrix operation standards.
+
+The dataset contains **10 input features (X1 to X10)**:
+*   **X1 (Age)**: Age of the patient.
+*   **X2 (Gender)**: Gender of the patient.
+*   **X3 (BMI)**: Body Mass Index.
+*   **X4 (BP)**: Average blood pressure.
+*   **X5 (S1)**: Total serum cholesterol (TC).
+*   **X6 (S2)**: Low‑density lipoproteins, LDL cholesterol.
+*   **X7 (S3)**: High‑density lipoproteins, HDL cholesterol.
+*   **X8 (S4)**: Total cholesterol / HDL ratio (TCH).
+*   **X9 (S5)**: Log of serum triglycerides level (often noted as LTG).
+*   **X10 (S6)**: Blood sugar (plasma glucose) level (often noted as GLU).
+
+### 2. Normalization
+The input features are normalized to improve gradient descent performance:
+- **Mean Centering**: Subtracting the mean from each column.
+- **Scaling**: Dividing by the range (max - min).
+- **Intercept**: A column of ones is added to `X` to account for the bias term ($\theta_0$).
+
+### 3. Hyperparameters (Optimized)
+The training is controlled by pre-set hyperparameters:
+- **Learning Rate (`alpha`):** `0.01`
+- **Iterations:** `2000`
+- **m:** The total number of training examples.
+
+### 4. Initialize Theta
+The parameter vector `theta` is initialized as a vector of zeros, with dimensions corresponding to the number of features (including the intercept).
+
+### 5. Gradient Descent
+The weights are updated iteratively to minimize the error:
+1. **Prediction**: Compute hypothesis $h_\theta(x) = X\theta$.
+2. **Error**: Calculate difference between predictions and actual values.
+3. **Gradient**: Compute the gradient of the cost function.
+4. **Update**: Adjust theta using $\theta = \theta - \alpha \cdot \text{gradient}$.
+5. **Cost**: Store the Mean Squared Error (MSE) to monitor convergence.
+
+### 6. Final Predictions
+After the loop finishes, the optimized `theta` is used to generate the final predictions. The code outputs the learned parameters and generates a visualization comparing predicted vs. actual values.
 
 ---
 
