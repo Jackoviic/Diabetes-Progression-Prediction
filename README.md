@@ -202,16 +202,16 @@ This will output the optimized parameters, the Train/Test MSE, and save the foll
 Example of model outputs:
 
 <p align="center">
-  <img src="results/cost_history.png" alt="Cost History" width="500"><br>
+  <img src="results/cost_history.png" alt="Cost History"><br>
   <em>Fig. 1: Cost Function Convergence</em>
 </p>
 
 <p align="center">
-  <img src="results/train_performance.png" alt="Train Performance" width="500"><br>
+  <img src="results/train_performance.png" alt="Train Performance"><br>
   <em>Fig. 2: Training Set Performance</em>
 </p>
 
 <p align="center">
-  <img src="results/test_performance.png" alt="Test Performance" width="500"><br>
+  <img src="results/test_performance.png" alt="Test Performance"><br>
   <em>Fig. 3: Test Set Performance</em>
 </p>
