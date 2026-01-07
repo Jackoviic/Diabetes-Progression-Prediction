@@ -10,7 +10,7 @@ if not os.path.exists(OUTPUT_DIR):
     os.makedirs(OUTPUT_DIR)
 
 # Load dataset
-df = pd.read_csv('assets/diabetes.tab.csv')
+df = pd.read_csv('assets/diabetes.csv')
 X = df.drop('Y', axis=1).values
 y = df[['Y']].to_numpy()
 

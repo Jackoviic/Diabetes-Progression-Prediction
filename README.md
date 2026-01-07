@@ -77,7 +77,7 @@ For a step-by-step interactive explanation, check out the **[Diabetes_Predicitio
 The `code.py` script implements the model through the following key steps:
 
 ### 1. Load Dataset
-The data is loaded from `assets/diabetes.tab.csv`. The script separates the features (`X`) from the target variable (`y`), converting `y` into a 2D numpy array to comply with matrix operation standards.
+The data is loaded from `assets/diabetes.csv`. The script separates the features (`X`) from the target variable (`y`) and converts them into numpy arrays.
 
 The dataset contains **10 input features (X1 to X10)**:
 *   **X1 (Age)**: Age of the patient.
@@ -91,31 +91,40 @@ The dataset contains **10 input features (X1 to X10)**:
 *   **X9 (S5)**: Log of serum triglycerides level (often noted as LTG).
 *   **X10 (S6)**: Blood sugar (plasma glucose) level (often noted as GLU).
 
-### 2. Normalization
-The input features are normalized to improve gradient descent performance:
-- **Mean Centering**: Subtracting the mean from each column.
-- **Scaling**: Dividing by the range (max - min).
-- **Intercept**: A column of ones is added to `X` to account for the bias term ($\theta_0$).
+### 2. Train / Test Split
+To properly evaluate the model's performance on unseen data, the dataset is split into two subsets:
+*   **Training Set (80%)**: Used to learn the model parameters (`theta`).
+*   **Test Set (20%)**: Used to evaluate how well the model generalizes.
+The split is randomized using numpy's permutation to ensure a fair distribution.
 
-### 3. Hyperparameters (Optimized)
-The training is controlled by pre-set hyperparameters:
+### 3. Normalization (Standardization)
+The input features are standardized (Z-score normalization) to ensure they are on a similar scale, which significantly improves gradient descent convergence:
+- **Mean Centering**: Subtracting the mean ($\mu$) from each feature.
+- **Scaling**: Dividing by the standard deviation ($\sigma$).
+- **Formula**: $x_{scaled} = \frac{x - \mu}{\sigma}$
+
+A column of ones is then added to `X` (both train and test sets) to account for the intercept term ($\theta_0$).
+
+### 4. Hyperparameters + Convergence
+The training is controlled by the following parameters:
 - **Learning Rate (`alpha`):** `0.01`
-- **Iterations:** `2000`
-- **m:** The total number of training examples.
-
-### 4. Initialize Theta
-The parameter vector `theta` is initialized as a vector of zeros, with dimensions corresponding to the number of features (including the intercept).
+- **Max Iterations:** `10000`
+- **Convergence Threshold (`epsilon`):** `1e-3` (The loop stops early if the cost improvement between iterations is less than this value).
 
 ### 5. Gradient Descent
-The weights are updated iteratively to minimize the error:
+The weights are updated iteratively to minimize the error on the **training set**:
 1. **Prediction**: Compute hypothesis $h_\theta(x) = X\theta$.
 2. **Error**: Calculate difference between predictions and actual values.
 3. **Gradient**: Compute the gradient of the cost function.
 4. **Update**: Adjust theta using $\theta = \theta - \alpha \cdot \text{gradient}$.
 5. **Cost**: Store the Mean Squared Error (MSE) to monitor convergence.
+6. **Convergence Check**: Stop if the change in cost is smaller than `epsilon`.
 
-### 6. Final Predictions
-After the loop finishes, the optimized `theta` is used to generate the final predictions. The code outputs the learned parameters and generates a visualization comparing predicted vs. actual values.
+### 6. Final Predictions & Evaluation
+After finding the optimal `theta`, the code:
+*   Calculates the final Mean Squared Error (MSE) for both **Training** and **Test** sets.
+*   Prints the optimized weights and performance metrics.
+*   Generates visualization plots.
 
 ---
 
@@ -123,8 +132,8 @@ After the loop finishes, the optimized `theta` is used to generate the final pre
 
 ### Key Files
 
-*   `code.py`: The **main analysis script**. It implements the entire ML pipeline from scratch (loading, normalization, gradient descent, plotting). Run this to see the training process and performance graph.
-*   `export_model.py`: A utility script that extracts the trained model parameters (weights/theta) and normalization statistics (mean, range) and saves them as JSON. These files are used by the web app for client-side prediction.
+*   `code.py`: The **main analysis script**. It implements the entire ML pipeline (loading, splitting, standardization, gradient descent, plotting).
+*   `export_model.py`: A utility script that extracts the trained model parameters (weights/theta) and standardization statistics (mean, std) and saves them as JSON.
 *   `web/`: Contains the Next.js web application source code.
 
 ### Requirements
@@ -177,16 +186,26 @@ $ pip install -r requirements.txt
 
 **3) Running the Model**
 
-To train the model and generate the performance plot:
+To train the model and generate the performance plots:
 
 ```bash
 $ python code.py
 ```
 
-This will output the optimized parameters and save the performance graph to `results/performance.png`.
+This will output the optimized parameters, the Train/Test MSE, and save the following graphs in the `results/` folder:
+- `test_performance.png`: Actual vs. Predicted values for the Test set.
+- `train_performance.png`: Actual vs. Predicted values for the Training set.
+- `cost_history.png`: The cost function value over iterations (convergence plot).
 
 ### Results
 
-The result of the model is shown in the following figure:
+Example of model outputs:
 
-![Results](results/performance.png)
+![Train Performance](results/train_performance.png)
+*Fig 1: Training Set Performance*
+
+![Test Performance](results/test_performance.png)
+*Fig 2: Test Set Performance*
+
+![Cost History](results/cost_history.png)
+*Fig 3: Cost Function Convergence*
