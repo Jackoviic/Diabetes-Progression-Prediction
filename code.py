@@ -3,9 +3,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import os
 
-# =========================
+# ================
 # 1) Load dataset
-# =========================
+# ================
 base_dir = os.path.dirname(__file__)
 csv_path = os.path.join(base_dir, "assets", "diabetes.csv")
 
@@ -15,9 +15,9 @@ X = df.drop('Y', axis=1).values
 y = df[['Y']].to_numpy()
 m = len(y)
 
-# =========================
+# ======================
 # 2) Train / Test split
-# =========================
+# ======================
 test_ratio = 0.2
 indices = np.random.permutation(m)
 
@@ -28,9 +28,9 @@ train_idx = indices[test_size:]
 X_train, X_test = X[train_idx], X[test_idx]
 y_train, y_test = y[train_idx], y[test_idx]
 
-# =========================
+# ====================================
 # 3) Feature scaling (Standardization)
-# =========================
+# ====================================
 X_mean = X_train.mean(axis=0)
 X_std  = X_train.std(axis=0)
 X_std[X_std == 0] = 1.0
@@ -41,18 +41,18 @@ X_test_scaled  = (X_test  - X_mean) / X_std
 X_train_scaled = np.hstack([np.ones((X_train_scaled.shape[0], 1)), X_train_scaled])
 X_test_scaled  = np.hstack([np.ones((X_test_scaled.shape[0], 1)),  X_test_scaled])
 
-# =========================
+# ================================
 # 4) Hyperparameters + convergence
-# =========================
+# ================================
 alpha = 0.01
 max_iters = 3000
 epsilon = 1e-3
 
 theta = np.zeros((X_train_scaled.shape[1], 1))
 
-# =========================
+# ================
 # 5) Cost function
-# =========================
+# ================
 def compute_cost(X, y, theta):
     m = len(y)
     predictions = X @ theta
@@ -60,9 +60,9 @@ def compute_cost(X, y, theta):
     cost = (1/(2*m)) * np.sum(error ** 2)
     return cost
 
-# =========================
+# ===========================================================
 # 6) Gradient Descent with automatic convergence (train only)
-# =========================
+# ===========================================================
 cost_history = []
 prev_cost = float('inf')
 
@@ -84,9 +84,9 @@ for i in range(max_iters):
 else:
     print(f"Reached max iterations {max_iters} with cost {cost_history[-1]:.4f}")
 
-# =========================
+# ===================================
 # 7) Final predictions (train & test)
-# =========================
+# ===================================
 y_train_pred = X_train_scaled @ theta
 y_test_pred  = X_test_scaled  @ theta
 
@@ -100,9 +100,9 @@ print(f"Train MSE: {train_mse:.4f}")
 print(f"Test  MSE: {test_mse:.4f}")
 print(f"\nFinal Coefficients (θ):\n{theta.ravel()}")
 
-# =========================
-# 8) Other plots
-# =========================
+# =========
+# 8) Plots
+# =========
 os.makedirs('results', exist_ok=True)
 
 # (a) Test set performance
