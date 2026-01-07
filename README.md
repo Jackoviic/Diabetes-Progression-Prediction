@@ -4,6 +4,19 @@
 
 This repository contains a Machine Learning project where a **Multiple Linear Regression (MLR)** model is implemented using **NumPy**. The goal is to predict the quantitative measure of **diabetes disease progression (Y)** one year after baseline, based on 10 demographic and clinical features. The model is trained using the **Batch Gradient Descent** optimization algorithm, offering a deep insight into the core mathematics of linear models.
 
+## 🌐 Live Web Application
+
+Explore the interactive prediction model live on Vercel:
+
+[**Diabetes Prediction Model App**](https://diabetes-progression-prediction.vercel.app/)
+
+**Features:**
+*   **Real-time Prediction**: Client-side inference using the trained model weights.
+*   **Interactive Dataset**: Browse patient records and see instant predictions.
+*   **Visual Analysis**: Compare predicted vs. actual values with a dynamic gauge.
+*   **Full Feature Display**: View all 10 clinical features (Age, BMI, BP, S1-S6).
+*   **Responsive Design**: Optimized for both desktop and mobile devices.
+
 ---
 
 ## 🔬 Core Machine Learning Technique: Multiple Linear Regression
@@ -108,6 +121,12 @@ After the loop finishes, the optimized `theta` is used to generate the final pre
 
 ## 🚀 Getting Started
 
+### Key Files
+
+*   `code.py`: The **main analysis script**. It implements the entire ML pipeline from scratch (loading, normalization, gradient descent, plotting). Run this to see the training process and performance graph.
+*   `export_model.py`: A utility script that extracts the trained model parameters (weights/theta) and normalization statistics (mean, range) and saves them as JSON. These files are used by the web app for client-side prediction.
+*   `web/`: Contains the Next.js web application source code.
+
 ### Requirements
 
 - Python = 3.13.3
@@ -147,6 +166,16 @@ Open Command Prompt or PowerShell in the project directory and run:
 ```bash
 $ pip install -r requirements.txt
 ```
+
+### 3) Running the Model
+
+To train the model and generate the performance plot:
+
+```bash
+$ python code.py
+```
+
+This will output the optimized parameters and save the performance graph to `results/performance.png`.
 
 ### Results
 
