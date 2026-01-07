@@ -53,11 +53,12 @@ print(f"\nFinal Coefficients (θ):\n{theta.ravel()}") # ravel(): Converts a 2D a
 
 # Actual vs Predicted plot
 plt.figure(figsize=(10, 6)) # Creates a plot figure (10x6 inches).
-plt.scatter(y, y_pred, alpha=0.5, color='blue') # x-axis range, y-axis range, alpha: Opacity, color: Blue.
-plt.plot([y.min(), y.max()], [y.min(), y.max()], 'k--', lw=2) # 'k--': Black (k) dashed (--) line, lw=2: Line width of 2, 
+plt.scatter(y, y_pred, alpha=0.5, color='blue', label='Predictions') # x-axis range, y-axis range, alpha: Opacity, color: Blue.
+plt.plot([y.min(), y.max()], [y.min(), y.max()], 'k--', lw=2, label='Perfect Prediction') # 'k--': Black (k) dashed (--) line, lw=2: Line width of 2, 
 plt.xlabel("Actual Disease Progression")
 plt.ylabel("Predicted Disease Progression")
 plt.title("Full Dataset Performance")
+plt.legend()
 plt.grid(True)
-plt.savefig('result/performance.png')
+plt.savefig('results/performance.png')
 # plt.show()
