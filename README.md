@@ -117,14 +117,32 @@ After the loop finishes, the optimized `theta` is used to generate the final pre
 
 ### Installation
 
-### 1) Install python 3.13.3
+#### Linux
+
+**1) Install Python 3.13.3**
 
 ```bash
 $ sudo apt update
 $ sudo apt install python3.13.3
 ```
 
-### 2) Install the required packages
+**2) Install the required packages**
+
+```bash
+$ pip install -r requirements.txt
+```
+
+#### Windows
+
+**1) Install Python 3.13.3**
+
+1. Download the Python 3.13.3 installer from the [official website](https://www.python.org/downloads/release/python-3133/).
+2. Run the installer.
+3. **Important:** Ensure you check the box **"Add Python to PATH"** at the bottom of the installer window before clicking "Install Now".
+
+**2) Install the required packages**
+
+Open Command Prompt or PowerShell in the project directory and run:
 
 ```bash
 $ pip install -r requirements.txt
