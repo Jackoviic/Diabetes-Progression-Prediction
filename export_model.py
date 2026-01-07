@@ -53,6 +53,13 @@ for i in range(max_iters):
         break
     prev_cost = cost
 
+# Define feature names (excluding Target Y and future Y_PRED)
+feature_names = df.drop('Y', axis=1).columns.tolist()
+
+# Calculate and add predictions to DataFrame
+final_predictions = X_scaled_biased @ theta
+df['Y_PRED'] = final_predictions.flatten()
+
 # Convert dataset to list of dicts for JSON
 # keys will be columns of df
 dataset_records = df.to_dict(orient='records')
@@ -62,7 +69,7 @@ model_params = {
     "theta": theta.flatten().tolist(),
     "mean": X_mean.flatten().tolist(),
     "std": X_std.flatten().tolist(),
-    "feature_names": df.drop('Y', axis=1).columns.tolist()
+    "feature_names": feature_names
 }
 
 # Save Model Params
