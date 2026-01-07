@@ -83,13 +83,19 @@ h1 {
 
 @media (max-width: 1024px) {
   .dashboard-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    /* Use Flexbox for ordering */
+    flex-direction: column-reverse;
+    /* Patient List (Left Panel) goes to Bottom */
     height: auto;
+    gap: 1.5rem;
   }
 
   .list-container {
-    height: 400px;
+    height: auto;
+    max-height: 350px;
     /* Limit height on mobile */
+    overflow-y: auto;
   }
 
   h1 {
