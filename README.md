@@ -59,6 +59,8 @@ $$
 
 ## 📝 Code Explanation
 
+For a step-by-step interactive explanation, check out the **[Diabetes_Predicition_Tutorial.ipynb](Diabetes_Predicition_Tutorial.ipynb)**.
+
 The `code.py` script implements the model through the following key steps:
 
 ### 1. Load Dataset
