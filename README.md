@@ -151,6 +151,14 @@ $ sudo apt install python3.13.3
 $ pip install -r requirements.txt
 ```
 
+### 3) Running the Model
+
+To train the model and generate the performance plot:
+
+```bash
+$ python code.py
+```
+
 #### Windows
 
 **1) Install Python 3.13.3**
@@ -179,6 +187,6 @@ This will output the optimized parameters and save the performance graph to `res
 
 ### Results
 
-The result of the model (results/performance.png) is shown in the following figure:
+The result of the model is shown in the following figure:
 
 ![Results](results/performance.png)
