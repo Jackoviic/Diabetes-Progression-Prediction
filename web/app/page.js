@@ -102,34 +102,16 @@ export default function Home() {
           <div>
             <div className="section-title">📊 Clinical Features</div>
             <div className="metrics-grid">
-              <div className="metric-card">
-                <div className="metric-label">Age</div>
-                <div className="metric-value">{selectedPatient?.AGE}</div>
-              </div>
-              <div className="metric-card">
-                <div className="metric-label">BMI</div>
-                <div className="metric-value">{selectedPatient?.BMI}</div>
-              </div>
-              <div className="metric-card">
-                <div className="metric-label">Blood Pressure</div>
-                <div className="metric-value">{selectedPatient?.BP}</div>
-              </div>
-              <div className="metric-card">
-                <div className="metric-label">Cholesterol (S1)</div>
-                <div className="metric-value">{selectedPatient?.S1}</div>
-              </div>
-              <div className="metric-card">
-                <div className="metric-label">LDL (S2)</div>
-                <div className="metric-value">{selectedPatient?.S2}</div>
-              </div>
-              <div className="metric-card">
-                <div className="metric-label">HDL (S3)</div>
-                <div className="metric-value">{selectedPatient?.S3}</div>
-              </div>
-              <div className="metric-card">
-                <div className="metric-label">Glucose (S6)</div>
-                <div className="metric-value">{selectedPatient?.S6}</div>
-              </div>
+              <div className="metric-card"><div className="metric-label">Age</div><div className="metric-value">{selectedPatient?.AGE}</div></div>
+              <div className="metric-card"><div className="metric-label">Gender</div><div className="metric-value">{selectedPatient?.GENDER === 1 ? 'F' : 'M'}</div></div>
+              <div className="metric-card"><div className="metric-label">BMI</div><div className="metric-value">{selectedPatient?.BMI}</div></div>
+              <div className="metric-card"><div className="metric-label">BP (Mean)</div><div className="metric-value">{selectedPatient?.BP}</div></div>
+              <div className="metric-card"><div className="metric-label">TC (S1)</div><div className="metric-value">{selectedPatient?.S1}</div></div>
+              <div className="metric-card"><div className="metric-label">LDL (S2)</div><div className="metric-value">{selectedPatient?.S2}</div></div>
+              <div className="metric-card"><div className="metric-label">HDL (S3)</div><div className="metric-value">{selectedPatient?.S3}</div></div>
+              <div className="metric-card"><div className="metric-label">TCH (S4)</div><div className="metric-value">{selectedPatient?.S4}</div></div>
+              <div className="metric-card"><div className="metric-label">LTG (S5)</div><div className="metric-value">{selectedPatient?.S5}</div></div>
+              <div className="metric-card"><div className="metric-label">GLU (S6)</div><div className="metric-value">{selectedPatient?.S6}</div></div>
             </div>
           </div>
 
