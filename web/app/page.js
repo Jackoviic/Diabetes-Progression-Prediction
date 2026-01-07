@@ -94,26 +94,63 @@ export default function Home() {
       {/* 2. Model Performance Section */}
       <section style={{ marginBottom: '4rem' }}>
         <div className="section-title">📈 Model Performance</div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
 
-          <div className="glass-panel" style={{ padding: '1rem' }}>
-            <h3 style={{ marginBottom: '1rem', textAlign: 'center', fontSize: '1rem' }}>Training Convergence</h3>
-            <div style={{ borderRadius: '10px', overflow: 'hidden' }}>
-              <img src="/results/cost_history.png" alt="Cost History" style={{ width: '100%', height: 'auto', display: 'block' }} />
+          {/* Cost History */}
+          <div className="glass-panel" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '2rem', padding: '2rem' }}>
+            <div style={{ flex: '1 1 500px' }}>
+              <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--glass-border)' }}>
+                <img src="/results/cost_history.png" alt="Cost History" style={{ width: '100%', height: 'auto', display: 'block' }} />
+              </div>
+            </div>
+            <div style={{ flex: '1 1 300px' }}>
+              <h3 style={{ marginBottom: '1rem', color: 'var(--accent-primary)', fontSize: '1.5rem' }}>Gradient Descent Convergence</h3>
+              <p style={{ color: 'var(--text-secondary)', marginBottom: '1rem', lineHeight: '1.6' }}>
+                The cost function (MSE) decreases as the model learns. We use <strong>Batch Gradient Descent</strong> with an automatic convergence check.
+              </p>
+              <ul style={{ color: 'var(--text-primary)', display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.95rem' }}>
+                <li>⚡ <strong>Learning Rate (&alpha;):</strong> 0.01</li>
+                <li>🔄 <strong>Max Iterations:</strong> 10,000</li>
+                <li>🛑 <strong>Convergence Threshold (&epsilon;):</strong> 1e-3</li>
+              </ul>
             </div>
           </div>
 
-          <div className="glass-panel" style={{ padding: '1rem' }}>
-            <h3 style={{ marginBottom: '1rem', textAlign: 'center', fontSize: '1rem' }}>Training Set Fit</h3>
-            <div style={{ borderRadius: '10px', overflow: 'hidden' }}>
-              <img src="/results/train_performance.png" alt="Train Performance" style={{ width: '100%', height: 'auto', display: 'block' }} />
+          {/* Train Performance */}
+          <div className="glass-panel" style={{ display: 'flex', flexWrap: 'wrap-reverse', alignItems: 'center', gap: '2rem', padding: '2rem' }}>
+            <div style={{ flex: '1 1 300px' }}>
+              <h3 style={{ marginBottom: '1rem', color: 'var(--success)', fontSize: '1.5rem' }}>Training Set Fit</h3>
+              <p style={{ color: 'var(--text-secondary)', marginBottom: '1rem', lineHeight: '1.6' }}>
+                The model minimizes error on the <strong>80% Training Split</strong>. The scatter plot shows predicted vs. actual values.
+              </p>
+              <ul style={{ color: 'var(--text-primary)', display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.95rem' }}>
+                <li>🎯 <strong>Goal:</strong> Points should align with the dashed line (Perfect Prediction).</li>
+                <li>📉 <strong>Optimization:</strong> Parameters (&theta;) are tuned here.</li>
+              </ul>
+            </div>
+            <div style={{ flex: '1 1 500px' }}>
+              <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--glass-border)' }}>
+                <img src="/results/train_performance.png" alt="Train Performance" style={{ width: '100%', height: 'auto', display: 'block' }} />
+              </div>
             </div>
           </div>
 
-          <div className="glass-panel" style={{ padding: '1rem' }}>
-            <h3 style={{ marginBottom: '1rem', textAlign: 'center', fontSize: '1rem' }}>Test Set Generalization</h3>
-            <div style={{ borderRadius: '10px', overflow: 'hidden' }}>
-              <img src="/results/test_performance.png" alt="Test Performance" style={{ width: '100%', height: 'auto', display: 'block' }} />
+          {/* Test Performance */}
+          <div className="glass-panel" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '2rem', padding: '2rem' }}>
+            <div style={{ flex: '1 1 500px' }}>
+              <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--glass-border)' }}>
+                <img src="/results/test_performance.png" alt="Test Performance" style={{ width: '100%', height: 'auto', display: 'block' }} />
+              </div>
+            </div>
+            <div style={{ flex: '1 1 300px' }}>
+              <h3 style={{ marginBottom: '1rem', color: 'var(--accent-secondary)', fontSize: '1.5rem' }}>Test Set Generalization</h3>
+              <p style={{ color: 'var(--text-secondary)', marginBottom: '1rem', lineHeight: '1.6' }}>
+                Performance on the <strong>20% Test Split</strong> (unseen data). This validates that the model hasn't just memorized the training data.
+              </p>
+              <ul style={{ color: 'var(--text-primary)', display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.95rem' }}>
+                <li>🧪 <strong>Validation:</strong> Crucial for real-world reliability.</li>
+                <li>📊 <strong>Visual Check:</strong> Distribution should resemble the training plot.</li>
+              </ul>
             </div>
           </div>
 
