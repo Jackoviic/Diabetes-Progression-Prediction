@@ -83,6 +83,6 @@ $ pip install -r requirements.txt
 
 ### Results
 
-The results of the model are shown in the following figure:
+The result of the model (results/performance.png) is shown in the following figure:
 
-![Results](results.png)
+![Results](results/Performance.png)
