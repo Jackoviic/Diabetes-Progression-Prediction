@@ -79,7 +79,7 @@ export default function Home() {
             { title: '1. Load Data', desc: 'Load the 442-patient dataset. Features: Age, BMI, BP, & 6 Blood Serum levels.' },
             { title: '2. Preprocessing', desc: 'Split data: 80% Training, 20% Testing. Apply Z-score Standardization.' },
             { title: '3. Architecture', desc: 'Initialize Linear Regression model with zero-weights.' },
-            { title: '4. Training', desc: 'Minimize MSE using Batch Gradient Descent (10k iters) with auto-convergence test.' },
+            { title: '4. Training', desc: 'Minimize MSE using Batch Gradient Descent (3k iters) with auto-convergence test.' },
             { title: '5. Evaluation', desc: 'Validate model on unseen Test Set to ensure generalization.' }
           ].map((step, i) => (
             <div key={i} className="glass-panel" style={{ padding: '1.5rem', textAlign: 'center' }}>
@@ -110,7 +110,7 @@ export default function Home() {
               </p>
               <ul style={{ color: 'var(--text-primary)', display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.95rem' }}>
                 <li>⚡ <strong>Learning Rate (&alpha;):</strong> 0.01</li>
-                <li>🔄 <strong>Max Iterations:</strong> 10,000</li>
+                <li>🔄 <strong>Max Iterations:</strong> 3,000</li>
                 <li>🛑 <strong>Convergence Threshold (&epsilon;):</strong> 1e-3</li>
               </ul>
             </div>

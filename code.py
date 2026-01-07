@@ -45,7 +45,7 @@ X_test_scaled  = np.hstack([np.ones((X_test_scaled.shape[0], 1)),  X_test_scaled
 # 4) Hyperparameters + convergence
 # =========================
 alpha = 0.01
-max_iters = 10000
+max_iters = 3000
 epsilon = 1e-3
 
 theta = np.zeros((X_train_scaled.shape[1], 1))
