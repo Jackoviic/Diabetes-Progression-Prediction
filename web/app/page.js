@@ -41,9 +41,9 @@ export default function Home() {
 
     features.forEach((f, i) => {
       const rawVal = selectedPatient[f];
-      // Normalize: (val - mean) / range
-      // Note: model.mean and model.range indices match features order
-      const normalized = (rawVal - model.mean[i]) / model.range[i];
+      // Normalize: (val - mean) / std
+      // Note: model.mean and model.std indices match features order
+      const normalized = (rawVal - model.mean[i]) / model.std[i];
       x.push(normalized);
     });
 

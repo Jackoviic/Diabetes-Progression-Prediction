@@ -14,29 +14,44 @@ df = pd.read_csv('assets/diabetes.csv')
 X = df.drop('Y', axis=1).values
 y = df[['Y']].to_numpy()
 
-# Normalization
+# Normalization (Standardization)
 X_mean = X.mean(axis=0)
-X_range = X.max(axis=0) - X.min(axis=0)
-X_range[X_range == 0] = 1
-X_scaled = (X - X_mean) / X_range
+X_std = X.std(axis=0)
+X_std[X_std == 0] = 1.0 # Avoid division by zero
+X_scaled = (X - X_mean) / X_std
 
 # Add intercept term
 X_scaled_biased = np.hstack([np.ones((X_scaled.shape[0], 1)), X_scaled])
 
 # Hyperparameters
 alpha = 0.01
-iterations = 2000
+max_iters = 10000
+epsilon = 1e-3
 m = len(y)
 
 # Initialize theta
 theta = np.zeros((X_scaled_biased.shape[1], 1))
 
-# Gradient Descent
-for i in range(iterations):
+# Gradient Descent with convergence check
+prev_cost = float('inf')
+
+def compute_cost(X, y, theta, m):
+    predictions = X @ theta
+    error = predictions - y
+    return (1/(2*m)) * np.sum(error ** 2)
+
+for i in range(max_iters):
     predictions = X_scaled_biased @ theta
     error = predictions - y
     gradient = (1/m) * X_scaled_biased.T @ error
     theta -= alpha * gradient
+
+    cost = compute_cost(X_scaled_biased, y, theta, m)
+    
+    if abs(prev_cost - cost) < epsilon:
+        print(f"Converged at iteration {i+1}")
+        break
+    prev_cost = cost
 
 # Convert dataset to list of dicts for JSON
 # keys will be columns of df
@@ -44,9 +59,9 @@ dataset_records = df.to_dict(orient='records')
 
 # Prepare export data
 model_params = {
-    "theta": theta.flatten().tolist(), # Convert to 1D list
+    "theta": theta.flatten().tolist(),
     "mean": X_mean.flatten().tolist(),
-    "range": X_range.flatten().tolist(),
+    "std": X_std.flatten().tolist(),
     "feature_names": df.drop('Y', axis=1).columns.tolist()
 }
 
