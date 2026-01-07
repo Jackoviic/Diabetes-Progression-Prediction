@@ -202,10 +202,10 @@ This will output the optimized parameters, the Train/Test MSE, and save the foll
 Example of model outputs:
 
 ![Train Performance](results/train_performance.png)
-*Fig 1: Training Set Performance*
+<center>Fig. 1: Training Set Performance</center>
 
 ![Test Performance](results/test_performance.png)
-*Fig 2: Test Set Performance*
+<center>Fig. 2: Test Set Performance</center>
 
 ![Cost History](results/cost_history.png)
-*Fig 3: Cost Function Convergence*
+<center>Fig. 3: Cost Function Convergence</center>
