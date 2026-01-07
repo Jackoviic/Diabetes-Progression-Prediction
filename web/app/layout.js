@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Diabetes Prediction Model App",
+  title: "Diabetes Prediction Model",
   description: "Interactive Multiple Linear Regression Model for Diabetes Progression Prediction",
 };
 
